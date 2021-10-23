@@ -1,17 +1,21 @@
 package uniandes.dpoo.taller4.interfaz;
-
-
 import java.awt.*;
 import javax.swing.*;
+
 
 public class PanelDificultad extends JPanel {
 	
 	public PanelDificultad() {
-		setLayout(new GridLayout(1,8));
+		FlowLayout layout = new FlowLayout(FlowLayout.CENTER);
+		setLayout(layout);
 		
-		add(new JLabel(""));
+		setBackground(new Color(54,114,224));
+
 		
-		JLabel tamanio=new JLabel("Tamaño:");
+		
+		JLabel tamanio=new JLabel("TamaÃ±o:");
+		tamanio.setSize(getPreferredSize());
+		tamanio.setForeground(Color.WHITE);
 		
 		add(tamanio);
 		
@@ -22,25 +26,34 @@ public class PanelDificultad extends JPanel {
 		
 		add(desplegable);
 		
+		add(new JLabel("    "));
+		
 		JLabel dificultad = new JLabel("Dificultad:");
-		dificultad.setSize(getPreferredSize());
+		dificultad.setForeground(Color.WHITE);
 		add(dificultad);
 		
 		ButtonGroup grupoDificultad= new ButtonGroup();
 		
 		JRadioButton facil= new JRadioButton("Facil");
 		add(facil);
+		facil.setForeground(Color.WHITE);
 		
 		JRadioButton medio= new JRadioButton("Medio");
 		add(medio);
+		medio.setForeground(Color.WHITE);
 		
 		JRadioButton dificil= new JRadioButton("Dificil");
 		add(dificil);
+		dificil.setForeground(Color.WHITE);
 		
 		grupoDificultad.add(facil);
 		grupoDificultad.add(medio);
 		grupoDificultad.add(dificil);
 		
-		add(new JLabel(""));
+
 	}
+	
+
 }
+    
+
