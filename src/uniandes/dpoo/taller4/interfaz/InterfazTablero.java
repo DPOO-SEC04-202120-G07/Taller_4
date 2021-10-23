@@ -3,6 +3,8 @@ package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
 import javax.swing.*;
 
+import com.formdev.flatlaf.FlatLightLaf;
+
 public class InterfazTablero extends JFrame {
 
 	public InterfazTablero() {
@@ -30,6 +32,7 @@ public class InterfazTablero extends JFrame {
 	}
 	
 	public static void main(String[] args) {
+		FlatLightLaf.install();
 		new InterfazTablero();
 	}
 
