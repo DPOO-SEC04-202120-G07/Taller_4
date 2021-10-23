@@ -21,6 +21,7 @@ public class PanelControlador extends JPanel{
 		JButton nuevo = new JButton("NUEVO");
 		nuevo.setBackground(azulBotones);
 		nuevo.setForeground(Color.WHITE);
+		nuevo.setPreferredSize(new Dimension(2,2));
 		add(nuevo);
 		
 		JButton reiniciar = new JButton("REINICIAR");

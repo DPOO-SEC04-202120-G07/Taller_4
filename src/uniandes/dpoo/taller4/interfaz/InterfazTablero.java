@@ -10,8 +10,9 @@ public class InterfazTablero extends JFrame {
 	public InterfazTablero() {
 		//Obtener dimensiones de la pantalla
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int width = (int) screenSize.getWidth();
-		int height = (int) screenSize.getHeight();
+		int width = (int) (screenSize.getWidth() * 0.848);
+		int height = (int) (screenSize.getHeight()* 1.392);
+		
 		
 		//Establecer el tipo de layout de la interfaz
 		setLayout(new BorderLayout());
@@ -28,7 +29,10 @@ public class InterfazTablero extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(width/2, height/2);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
+		
+		System.out.println(getSize());
 	}
 	
 	public static void main(String[] args) {

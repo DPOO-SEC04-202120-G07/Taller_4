@@ -1,5 +1,9 @@
 package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
+
 import javax.swing.*;
 
 
@@ -12,9 +16,8 @@ public class PanelDificultad extends JPanel {
 		setBackground(new Color(54,114,224));
 
 		
-		
+		// Definición y ubicación de componentes
 		JLabel tamanio=new JLabel("Tamaño:");
-		tamanio.setSize(getPreferredSize());
 		tamanio.setForeground(Color.WHITE);
 		
 		add(tamanio);
@@ -51,6 +54,16 @@ public class PanelDificultad extends JPanel {
 		grupoDificultad.add(dificil);
 		
 
+		//Listeners
+		
+		//Listener ComboBox
+		desplegable.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(desplegable.getSelectedItem().toString());
+				
+			}
+	    });  
 	}
 	
 
