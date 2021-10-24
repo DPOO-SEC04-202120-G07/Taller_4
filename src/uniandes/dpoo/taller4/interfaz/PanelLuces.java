@@ -9,14 +9,14 @@ public class PanelLuces extends JComponent{
 	int gridWidth; 
 	int gridHeight;
 	
-	int filas = 5;
-	int columnas = 5;
+	public static int filas=5;
+	public static int columnas=5;
 	
 	
 	public PanelLuces() {
+		
 	}
 	
-
 	
 	
 	public void paint( Graphics g )
@@ -45,8 +45,9 @@ public class PanelLuces extends JComponent{
 	    //Se dibujan las columnas
 	    int columnaWidth = this.gridWidth / (columnas);
 	    for (int i = 0; i < columnas; i++)
-	      g.drawLine(i * columnaWidth, 0, i * columnaWidth, gridWidth);
+	     g.drawLine(i * columnaWidth, 0, i * columnaWidth, gridWidth);
 
+	   repaint();
 	
 }
 	

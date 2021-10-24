@@ -2,9 +2,15 @@ package uniandes.dpoo.taller4.interfaz;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import javax.swing.*;
 
 public class PanelControlador extends JPanel{
+	
+	public static int nextFilas=5;
+	public static int nextColumnas=5;
 
 	public PanelControlador() {
 		
@@ -40,6 +46,15 @@ public class PanelControlador extends JPanel{
 		add(cambiarJugador);
 		
 		add(new JLabel(""));
+		
+		//Listener
+		
+		nuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelLuces.filas=PanelControlador.nextFilas;
+				PanelLuces.columnas=PanelControlador.nextColumnas;
+			}
+		});
 	}
 	
 }

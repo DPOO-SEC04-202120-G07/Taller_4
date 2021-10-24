@@ -5,8 +5,12 @@ import javax.swing.*;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
-public class InterfazTablero extends JFrame {
+import uniandes.dpoo.taller4.modelo.*;
 
+public class InterfazTablero extends JFrame {
+	
+	private Tablero tablero = new Tablero(5);
+	
 	public InterfazTablero() {
 		//Obtener dimensiones de la pantalla
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -18,8 +22,10 @@ public class InterfazTablero extends JFrame {
 		setLayout(new BorderLayout());
 		
 		//Componentes
+		
 		add(new PanelDificultad(), BorderLayout.NORTH);
-		add(new PanelLuces(), BorderLayout.CENTER);
+		PanelLuces panelLuces=new PanelLuces();
+		add(panelLuces, BorderLayout.CENTER);
 		add(new PanelControlador(), BorderLayout.EAST);
 		add(new PanelEstado(), BorderLayout.SOUTH);
 		
@@ -32,7 +38,6 @@ public class InterfazTablero extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		System.out.println(getSize());
 	}
 	
 	public static void main(String[] args) {
