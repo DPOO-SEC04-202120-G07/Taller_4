@@ -1,6 +1,8 @@
 package uniandes.dpoo.taller4.interfaz;
 
 import java.awt.*;
+import java.io.File;
+
 import javax.swing.*;
 
 import com.formdev.flatlaf.FlatLightLaf;
@@ -43,6 +45,12 @@ public class InterfazTablero extends JFrame {
 	public static void main(String[] args) {
 		FlatLightLaf.install();
 		new InterfazTablero();
+	}
+	
+	public static void top10(){
+		Top10 top10= new Top10();
+		top10.cargarRecords(new File("./data/top10.csv"));
+		new InterfazTop10(top10);
 	}
 
 }

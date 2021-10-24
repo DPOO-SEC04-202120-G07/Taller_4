@@ -56,6 +56,13 @@ public class PanelControlador extends JPanel{
 				PanelLuces.columnas=PanelControlador.nextColumnas;
 			}
 		});
+		
+		//Listener top10 buttom
+		top10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				InterfazTablero.top10();
+			}
+		});
 	}
 	
 }
