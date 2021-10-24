@@ -47,8 +47,9 @@ public class PanelControlador extends JPanel{
 		
 		add(new JLabel(""));
 		
-		//Listener
+		//Listeners
 		
+		//Listener nuevo buttom
 		nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PanelLuces.filas=PanelControlador.nextFilas;
