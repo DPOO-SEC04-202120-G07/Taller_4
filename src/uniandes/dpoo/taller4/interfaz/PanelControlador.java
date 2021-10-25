@@ -53,7 +53,7 @@ public class PanelControlador extends JPanel{
 		
 		//Listeners
 		
-		//Listener nuevo buttom
+		//Listener nuevo button
 		nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PanelLuces.filas=PanelControlador.nextFilas;
@@ -63,10 +63,18 @@ public class PanelControlador extends JPanel{
 			}
 		});
 		
-		//Listener top10 buttom
+		//Listener top10 button
 		top10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				InterfazTablero.controladorTablero.AbrirTop10();
+			}
+		});
+		
+		
+		//Listener reiniciar button
+		reiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				InterfazTablero.controladorTablero.reiniciarTablero();
 			}
 		});
 	}

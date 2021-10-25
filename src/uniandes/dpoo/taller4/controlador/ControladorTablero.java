@@ -31,6 +31,10 @@ public class ControladorTablero {
 		tablero.jugar(jugada[0], jugada[1]);
 	}
 	
+	public void reiniciarTablero() {
+		tablero.reiniciar();
+	}
+	
 
 
 }
