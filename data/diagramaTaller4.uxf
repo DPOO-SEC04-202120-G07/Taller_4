@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>25</y>
+      <w>110</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Tablero
+--
+- tablero: boolean[][]
+- tablero_original: boolean[][]
+- jugadas: int
+--
++Tablero(int tamano)
+
++ reiniciar(): void
++ salvar_tablero(): void
++ desordenar(int dificultad): void
++ darJugadas(): int
++ darTablero(): boolean[][]
++ jugar(int fila, int columna): void
++ tableroIluminado(): boolean
++ calcularPuntaje(): int
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>65</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>RegistroTop10
+--
+- nombre: String
+- puntos: int
+--
++RegistroTop10(String nombre, int puntos)
+
++ darPuntos(): int
++ darNombre(): String
++ toString(): String
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>165</y>
+      <w>165</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Top10
+--
+- nombre: String
+- peorPuntaje: int
+--
++Top10()
+
++ esTop10(int puntaje): boolean
++ agregarRegistro(String nombre, int puntaje): void
++ darRegistros(): Collection&lt;RegistroTop10&gt;
++ salvarRecords(File archivo): void
++ cargarRecords(File archivo): void
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>655</x>
+      <y>140</y>
+      <w>75</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+10
+registros</panel_attributes>
+    <additional_attributes>80.0;10.0;80.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>485</x>
+      <y>0</y>
+      <w>285</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>modelo
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>255</x>
+      <y>0</y>
+      <w>195</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>controlador
+--
+fg=black
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>25</y>
+      <w>165</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>ControladorTablero
+--
+- nombre: String
+- peorPuntaje: int
+--
++ControladorTablero()
+
++ AbrirTop10(): void
++ nuevoTablero(int tamanio): void
++ getTablero(): Tablero
++ setTablero(Tablero tablero): void
++ jugarTablero(int[][] jugada): void
++ reiniciarTablero(): void
++ establecerDificultad(int dificultad): void
++ getJugadas(): int
++ isCompletado(): boolean
++ esTop10(): boolean
++ salvarTop10(): void
++ agregarTop10(String nombre): void
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>70</y>
+      <w>70</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1
+tablero</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>150</y>
+      <w>75</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1
+top10</panel_attributes>
+    <additional_attributes>130.0;140.0;50.0;140.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>330</y>
+      <w>165</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>InterfazTablero
+--
++InterfazTablero()
+
+_+ main(String[] args): void_
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>540</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>InterfazTop10
+--
++InterfazTop10(Top10 top)	
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>170</y>
+      <w>75</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1
+_controladorTablero_</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>465</y>
+      <w>140</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>PanelControlador
+--
+_+ nextFilas: int_
+_+ nextColumnas: int_
+_+ dificultad: int_
+--
++ PanelControlador()
+
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>415</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>PanelDificultad
+--
++ PanelDificultad()
+
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>320</y>
+      <w>155</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>PanelEstado
+--
+_- fJugador: JTextField_
+_- fJugadas: JTextField_
+--
++ PanelEstado()
+
+_+ cambiarNombre(String nombreJugador): void_
+_+ establecerJugadas(int jugadas): void_
+_+ getNombre(): String_
+
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>435</y>
+      <w>160</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>PanelLuces
+--
+- gridWidth: int
+- gridHeight: int
+- filaHeight: int
+- columnaWidth: int
+_+ Filas: int_
+_+ Columnas: int_
+--
++ PanelLuces()
+
++ paint(Graphics g): void
++ converdirCoordenadasACasilla(int x, int y): int[]
+
+
+
+bg=white
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>375</y>
+      <w>20</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>375</y>
+      <w>190</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;280.0;100.0;280.0;230.0;360.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>375</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;270.0;80.0;270.0;120.0;320.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>365</y>
+      <w>150</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+1</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;70.0;250.0;70.0;250.0;10.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>615</x>
+      <y>515</y>
+      <w>20</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+1</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;20.0;10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>320</x>
+      <y>285</y>
+      <w>450</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>interfaz
+--
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>520</y>
+      <w>80</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>JFrame
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>575</y>
+      <w>80</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>JPanel
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>465</y>
+      <w>80</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>JComponent
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>475</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>195</x>
+      <y>350</y>
+      <w>155</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;360.0;10.0;360.0;10.0;10.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>535</y>
+      <w>270</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;40.0;520.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>485</y>
+      <w>435</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;250.0;10.0;280.0;850.0;280.0;850.0;10.0;830.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>425</y>
+      <w>475</w>
+      <h>235</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;370.0;10.0;450.0;930.0;450.0;930.0;10.0;880.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>365</y>
+      <w>515</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;490.0;10.0;610.0;1010.0;610.0;1000.0;10.0;950.0;10.0</additional_attributes>
+  </element>
+</diagram>
