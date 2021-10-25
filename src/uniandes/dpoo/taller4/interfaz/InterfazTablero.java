@@ -1,37 +1,38 @@
 package uniandes.dpoo.taller4.interfaz;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
-
 import javax.swing.*;
-
 import com.formdev.flatlaf.FlatLightLaf;
+import uniandes.dpoo.taller4.controlador.ControladorTablero;
 
-import uniandes.dpoo.taller4.modelo.*;
+
 
 public class InterfazTablero extends JFrame {
 
+	//Se crea el controlador
+	public static ControladorTablero controladorTablero = new ControladorTablero();
 	
+
 	public InterfazTablero() {
+		
 		//Obtener dimensiones de la pantalla
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int width = (int) (screenSize.getWidth() * 0.848);
 		int height = (int) (screenSize.getHeight()* 1.392);
 		
-		
 		//Establecer el tipo de layout de la interfaz
 		setLayout(new BorderLayout());
 		
 		//Componentes
-		
 		add(new PanelDificultad(), BorderLayout.NORTH);
-		
 		PanelLuces panelLuces=new PanelLuces();
 		add(panelLuces, BorderLayout.CENTER);
-		
 		add(new PanelControlador(), BorderLayout.EAST);
 		add(new PanelEstado(), BorderLayout.SOUTH);
-		
 		
 		//Configuraciones de la ventana
 		setTitle("LightsOut");
@@ -41,6 +42,21 @@ public class InterfazTablero extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
+		
+		//Se dibuja el tablero por default (5x5) de cuando se abre la aplicación
+		PanelLuces.estadoTablero = controladorTablero.getTablero().darTablero();
+		
+		
+		//Listener mouse
+		panelLuces.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        int mouse_xPosition=e.getX();
+		        int mouse_yPosition=e.getY();
+		        
+		    }
+		    });
+		
 	}
 	
 	public static void main(String[] args) {
@@ -48,10 +64,13 @@ public class InterfazTablero extends JFrame {
 		new InterfazTablero();
 	}
 	
-	public static void top10(){
-		Top10 top10= new Top10();
-		top10.cargarRecords(new File("./data/top10.csv"));
-		new InterfazTop10(top10);
-	}
+
+	
+	
+
+	
+	
+
+	
 
 }

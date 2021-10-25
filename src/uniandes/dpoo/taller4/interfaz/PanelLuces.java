@@ -14,7 +14,7 @@ public class PanelLuces extends JComponent{
 	public static int filas=5;
 	public static int columnas=5;
 	
-	public static Tablero tablero =  new Tablero(5);
+	public static boolean[][] estadoTablero;
 	
 	
 	public PanelLuces() {
@@ -39,8 +39,6 @@ public class PanelLuces extends JComponent{
 		//////// Variables dibujo recursivo tablero ///////
 	    int filaHeight = this.gridHeight / (filas);
 	    int columnaWidth = this.gridWidth / (columnas);
-	    boolean[][] estadoTablero = tablero.darTablero();
-		
 		
 	   
 	    //Se dibujan las casillas del tablero prendidas o apagadas

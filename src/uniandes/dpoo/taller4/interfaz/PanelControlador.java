@@ -49,6 +49,8 @@ public class PanelControlador extends JPanel{
 		
 		add(new JLabel(""));
 		
+		
+		
 		//Listeners
 		
 		//Listener nuevo buttom
@@ -56,14 +58,15 @@ public class PanelControlador extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				PanelLuces.filas=PanelControlador.nextFilas;
 				PanelLuces.columnas=PanelControlador.nextColumnas;
-				PanelLuces.tablero = new Tablero(PanelControlador.nextFilas);
+				InterfazTablero.controladorTablero.nuevoTablero(PanelLuces.filas);
+				PanelLuces.estadoTablero = InterfazTablero.controladorTablero.getTablero().darTablero();
 			}
 		});
 		
 		//Listener top10 buttom
 		top10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfazTablero.top10();
+				InterfazTablero.controladorTablero.AbrirTop10();
 			}
 		});
 	}
