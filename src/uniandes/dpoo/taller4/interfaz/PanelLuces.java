@@ -23,8 +23,29 @@ public class PanelLuces extends JComponent{
 	public static int filas=5;
 	public static int columnas=5;
 	
+	private BufferedImage bombillo_encendido=null;
+	
+	private BufferedImage bombillo_apagado=null;
+	
+	
+	
 
 	public PanelLuces() {
+		
+
+		try {
+			bombillo_encendido = ImageIO.read(new File("./data/luz.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		try {
+			bombillo_apagado = ImageIO.read(new File("./data/luz_apagada.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
@@ -58,25 +79,26 @@ public class PanelLuces extends JComponent{
 	    		
 	    			
 		    	
-	    		g.setColor(new Color(250,211,78));
+
 		    	//Se revisa el estado actual de la casilla para decidir de que color pintarla
 		    	if(estadoTablero[j][i] == false) {
 		    	    g.setColor(new Color(35,35,35));
 		    	}
-		    	
-		    	
-		    		
-		    	
+		    	else {
+		    		g.setColor(new Color(250,211,78));
+		    	}
 		    	g.fillRoundRect(pixelInicioCasilla.x,  pixelInicioCasilla.y, columnaWidth,filaHeight, 50, 50);
 		    	
-		    	BufferedImage image=null;
-				try {
-					image = ImageIO.read(new File("./data/luz.png"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-	    		
-		    	g.drawImage(image,(int) (pixelInicioCasilla.x+(filaHeight*0.16)),(int) (pixelInicioCasilla.y+(filaHeight*0.16)),(int) (columnaWidth-(columnaWidth*0.3)),(int)(filaHeight-(filaHeight*0.3)),this);
+		    	
+		    	//Se revisa el estado actual para decidir que tipo de bombillo debe ser dibujado
+		    	if(estadoTablero[j][i] == false) {
+		    		g.drawImage(bombillo_apagado,(int) (pixelInicioCasilla.x+(filaHeight*0.16)),(int) (pixelInicioCasilla.y+(filaHeight*0.16)),(int) (columnaWidth-(columnaWidth*0.3)),(int)(filaHeight-(filaHeight*0.3)),this);
+		    	}
+		    	
+		    	else {
+		    		g.drawImage(bombillo_encendido,(int) (pixelInicioCasilla.x+(filaHeight*0.16)),(int) (pixelInicioCasilla.y+(filaHeight*0.16)),(int) (columnaWidth-(columnaWidth*0.3)),(int)(filaHeight-(filaHeight*0.3)),this);
+		    	}
+		    	
 		    	
 		    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x, pixelInicioCasilla.y + filaHeight);
 		    	
