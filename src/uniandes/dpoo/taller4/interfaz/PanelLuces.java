@@ -76,7 +76,7 @@ public class PanelLuces extends JComponent{
 					e.printStackTrace();
 				}
 	    		
-		    	g.drawImage(image,pixelInicioCasilla.x+60,pixelInicioCasilla.y+60, columnaWidth-120,filaHeight-120,this);
+		    	g.drawImage(image,(int) (pixelInicioCasilla.x+(filaHeight*0.16)),(int) (pixelInicioCasilla.y+(filaHeight*0.16)),(int) (columnaWidth-(columnaWidth*0.3)),(int)(filaHeight-(filaHeight*0.3)),this);
 		    	
 		    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x, pixelInicioCasilla.y + filaHeight);
 		    	
