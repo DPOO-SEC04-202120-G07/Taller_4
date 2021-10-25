@@ -44,30 +44,56 @@ public class InterfazTop10 extends JFrame{
 		DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
 			
 			public Component getListCellRendererComponent( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus ) {
-			    Component c = super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus);
+			    JLabel c = (JLabel) super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus);
 			    
 			    //Se cambia la fuente y el grosor de todos los elementos
 			    list.setFont(new Font("Helvetica",Font.BOLD,12));
+			    
 			    
 			    if(index == 0) {
 			    	c.setBackground(new Color(54,114,224));
 			    	c.setForeground(Color.WHITE);
 			    }
 			    
+			    else if(index == 1) {
+			    	c.setForeground(new Color(212,175,55));
+			    }
+			    
+			    else if(index == 2) {
+			    	c.setForeground(new Color(170,169,173));
+			    }
+			    
+			    else if(index == 3) {
+			    	c.setForeground(new Color(176,141,87));
+			    }
+			    	
+			    if(isSelected) {
+			    	c.setBackground(new Color(35,35,35));
+			    }
+			    
+			    
+			    c.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,new Color(200,200,200)));
+			    
 			    return c;
 			}
 			
 		};
 		
-		
+		//Establecemos el renderizado
 		renderer.setHorizontalAlignment(SwingConstants.CENTER);
 		top10_list.setCellRenderer(renderer);
 		
 		
-
+		//Determinamos el tamaño de cada celda
+		top10_list.setFixedCellHeight(50);
+		top10_list.setFixedCellWidth(100);
 		
-		//Añadimos la lista al frame
-		add(top10_list);
+		
+		//Hacemos que la lista se pueda scrollear
+		JScrollPane scrollPane = new JScrollPane(top10_list);
+		
+		//Añadimos la lista scrolleable
+		add(scrollPane);
 		
 		
 		//Definimos el tamañp del frame
