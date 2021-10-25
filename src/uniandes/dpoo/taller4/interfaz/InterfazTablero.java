@@ -54,6 +54,26 @@ public class InterfazTablero extends JFrame {
 		        //Aumentar jugadas
 		        int jugadas = controladorTablero.getJugadas();
 		        PanelEstado.establecerJugadas(jugadas);
+		        
+		        //Revisar si se completó el tablero después de la última jugada
+		        boolean completado = controladorTablero.isCompletado();
+		        if(completado) {
+		        	JOptionPane.showMessageDialog(panelLuces, "Felicitaciones, ha completado el juego.");
+		        	//Se revisa si es top10 y se agrega el record
+		        	if(InterfazTablero.controladorTablero.esTop10()) {
+		        		controladorTablero.agregarTop10(PanelEstado.getNombre());
+		        	}
+		        	
+		        	//Se crea un nuevo tablero para volver a jugar
+					InterfazTablero.controladorTablero.nuevoTablero(PanelLuces.filas);
+					InterfazTablero.controladorTablero.establecerDificultad(PanelControlador.dificultad);
+					
+			        //Borrar jugadas
+			        jugadas = InterfazTablero.controladorTablero.getJugadas();
+			        PanelEstado.establecerJugadas(jugadas);
+		        	
+		        }
+		        
 		    }
 		    });
 		

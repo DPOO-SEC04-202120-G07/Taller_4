@@ -14,7 +14,7 @@ public class PanelControlador extends JPanel{
 	public static int nextFilas=5;
 	public static int nextColumnas=5;
 	
-	public static int dificultad = 1;
+	public static int dificultad = 2;
 
 	public PanelControlador() {
 		

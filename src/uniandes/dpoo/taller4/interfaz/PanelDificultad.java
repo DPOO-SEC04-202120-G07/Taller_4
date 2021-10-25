@@ -73,8 +73,8 @@ public class PanelDificultad extends JPanel {
 		//Facil RadioButton
 		facil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Se establece una dificultad fácil de 1
-				PanelControlador.dificultad = 1;
+				//Se establece una dificultad fácil de 2
+				PanelControlador.dificultad = 2;
 			}
 	    });  
 		

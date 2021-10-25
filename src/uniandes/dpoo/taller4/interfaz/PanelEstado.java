@@ -38,6 +38,10 @@ public class PanelEstado extends JPanel {
 		PanelEstado.fJugadas.setText("" + jugadas);
 	}
 	
+	public static String getNombre() {
+		return PanelEstado.fJugador.getText();
+	}
+	
 
 	
 	

@@ -8,10 +8,13 @@ import uniandes.dpoo.taller4.modelo.*;
 public class ControladorTablero {
 
 	private Tablero tablero =  new Tablero(5);
+	private Top10 top10= new Top10();
+	
+	public ControladorTablero(){
+	top10.cargarRecords(new File("./data/top10.csv"));
+	tablero.desordenar(2);}
 	
 	public void AbrirTop10(){
-		Top10 top10= new Top10();
-		top10.cargarRecords(new File("./data/top10.csv"));
 		new InterfazTop10(top10);
 	}
 	
@@ -41,6 +44,21 @@ public class ControladorTablero {
 
 	public int getJugadas() {
 		return 	tablero.darJugadas();
+	}
+
+	public boolean isCompletado() {
+
+		return tablero.tableroIluminado();
+	}
+	
+	public boolean esTop10() {
+		return top10.esTop10(tablero.calcularPuntaje());
+	}
+
+	public void agregarTop10(String nombre) {
+		System.out.println(nombre);
+		if(nombre != null) {
+		top10.agregarRegistro(nombre, tablero.calcularPuntaje());}
 	}
 	
 
