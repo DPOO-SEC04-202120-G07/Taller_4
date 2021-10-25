@@ -41,9 +41,30 @@ public class InterfazTop10 extends JFrame{
 		JList<String> top10_list = new JList<String>(modelo);
 		
 		//Modificamos el renderizado
-		DefaultListCellRenderer renderer = (DefaultListCellRenderer) top10_list.getCellRenderer();
-		renderer.setHorizontalAlignment(SwingConstants.CENTER);
+		DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
+			
+			public Component getListCellRendererComponent( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus ) {
+			    Component c = super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus);
+			    
+			    //Se cambia la fuente y el grosor de todos los elementos
+			    list.setFont(new Font("Helvetica",Font.BOLD,12));
+			    
+			    if(index == 0) {
+			    	c.setBackground(new Color(54,114,224));
+			    	c.setForeground(Color.WHITE);
+			    }
+			    
+			    return c;
+			}
+			
+		};
 		
+		
+		renderer.setHorizontalAlignment(SwingConstants.CENTER);
+		top10_list.setCellRenderer(renderer);
+		
+		
+
 		
 		//Añadimos la lista al frame
 		add(top10_list);
