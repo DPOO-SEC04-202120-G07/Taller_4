@@ -53,7 +53,8 @@ public class InterfazTablero extends JFrame {
 		    public void mouseClicked(MouseEvent e) {
 		        int mouse_xPosition=e.getX();
 		        int mouse_yPosition=e.getY();
-		        
+		        int[] casillaClickeada  = panelLuces.convertirCoordenadasACasilla(mouse_xPosition, mouse_yPosition);
+		        controladorTablero.jugarTablero(casillaClickeada);
 		    }
 		    });
 		

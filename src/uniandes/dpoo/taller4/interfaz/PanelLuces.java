@@ -11,6 +11,11 @@ public class PanelLuces extends JComponent{
 	int gridWidth; 
 	int gridHeight;
 	
+	int filaHeight;
+	int columnaWidth;
+	
+	
+	
 	public static int filas=5;
 	public static int columnas=5;
 	
@@ -37,8 +42,8 @@ public class PanelLuces extends JComponent{
 		
 		
 		//////// Variables dibujo recursivo tablero ///////
-	    int filaHeight = this.gridHeight / (filas);
-	    int columnaWidth = this.gridWidth / (columnas);
+	    this.filaHeight = this.gridHeight / (filas);
+	    this.columnaWidth = this.gridWidth / (columnas);
 		
 	   
 	    //Se dibujan las casillas del tablero prendidas o apagadas
@@ -77,5 +82,15 @@ public class PanelLuces extends JComponent{
 	   repaint();
 	
 }
+	
+	public int[] convertirCoordenadasACasilla(int x, int y)
+	{
+	int fila = (int) (y / filaHeight);
+	int columna = (int) (x / columnaWidth);
+	return new int[] { fila, columna };
+	}
+
+	
+	
 	
 }

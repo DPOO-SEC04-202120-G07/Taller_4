@@ -26,5 +26,11 @@ public class ControladorTablero {
 	public void setTablero(Tablero tablero) {
 		this.tablero = tablero;
 	}
+	
+	public void jugarTablero(int[] jugada) {
+		tablero.jugar(jugada[0], jugada[1]);
+	}
+	
+
 
 }
