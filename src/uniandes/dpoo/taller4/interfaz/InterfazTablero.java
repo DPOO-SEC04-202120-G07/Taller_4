@@ -10,8 +10,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.modelo.*;
 
 public class InterfazTablero extends JFrame {
-	
-	private Tablero tablero = new Tablero(5);
+
 	
 	public InterfazTablero() {
 		//Obtener dimensiones de la pantalla
@@ -26,8 +25,10 @@ public class InterfazTablero extends JFrame {
 		//Componentes
 		
 		add(new PanelDificultad(), BorderLayout.NORTH);
+		
 		PanelLuces panelLuces=new PanelLuces();
 		add(panelLuces, BorderLayout.CENTER);
+		
 		add(new PanelControlador(), BorderLayout.EAST);
 		add(new PanelEstado(), BorderLayout.SOUTH);
 		

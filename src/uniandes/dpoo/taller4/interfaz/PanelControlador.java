@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import javax.swing.*;
 
+import uniandes.dpoo.taller4.modelo.Tablero;
+
 public class PanelControlador extends JPanel{
 	
 	public static int nextFilas=5;
@@ -54,6 +56,7 @@ public class PanelControlador extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				PanelLuces.filas=PanelControlador.nextFilas;
 				PanelLuces.columnas=PanelControlador.nextColumnas;
+				PanelLuces.tablero = new Tablero(PanelControlador.nextFilas);
 			}
 		});
 		
