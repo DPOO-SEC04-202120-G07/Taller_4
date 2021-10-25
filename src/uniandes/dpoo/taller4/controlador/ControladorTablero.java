@@ -62,7 +62,6 @@ public class ControladorTablero {
 	}
 
 	public void agregarTop10(String nombre) {
-		System.out.println(nombre);
 		if(nombre != null) {
 		top10.agregarRegistro(nombre, tablero.calcularPuntaje());}
 	}

@@ -2,6 +2,11 @@ package uniandes.dpoo.taller4.interfaz;
 
 import java.awt.*;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import uniandes.dpoo.taller4.modelo.Tablero;
@@ -50,15 +55,33 @@ public class PanelLuces extends JComponent{
 
 	    for(int i = 0; i < filas; i++) {
 	    	for(int j = 0; j < columnas; j++) {
+	    		
+	    			
+		    	
 	    		g.setColor(new Color(250,211,78));
 		    	//Se revisa el estado actual de la casilla para decidir de que color pintarla
 		    	if(estadoTablero[j][i] == false) {
 		    	    g.setColor(new Color(35,35,35));
 		    	}
+		    	
+		    	
 		    		
+		    	
 		    	g.fillRoundRect(pixelInicioCasilla.x,  pixelInicioCasilla.y, columnaWidth,filaHeight, 50, 50);
 		    	
+		    	BufferedImage image=null;
+				try {
+					image = ImageIO.read(new File("./data/luz.png"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	    		
+		    	g.drawImage(image,pixelInicioCasilla.x+60,pixelInicioCasilla.y+60, columnaWidth-120,filaHeight-120,this);
+		    	
 		    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x, pixelInicioCasilla.y + filaHeight);
+		    	
+		    	
+
 	    	}
 	    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x + columnaWidth, 0);
 
