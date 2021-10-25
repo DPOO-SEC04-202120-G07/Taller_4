@@ -1,5 +1,7 @@
 package uniandes.dpoo.taller4.controlador;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import uniandes.dpoo.taller4.interfaz.InterfazTop10;
 import uniandes.dpoo.taller4.modelo.*;
@@ -53,6 +55,10 @@ public class ControladorTablero {
 	
 	public boolean esTop10() {
 		return top10.esTop10(tablero.calcularPuntaje());
+	}
+	
+	public void salvarTop10() throws FileNotFoundException, UnsupportedEncodingException {
+		top10.salvarRecords(new File("./data/top10.csv"));;
 	}
 
 	public void agregarTop10(String nombre) {

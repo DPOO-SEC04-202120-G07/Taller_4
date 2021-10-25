@@ -3,6 +3,11 @@ package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 import javax.swing.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.controlador.ControladorTablero;
@@ -43,7 +48,6 @@ public class InterfazTablero extends JFrame {
 		
 		//Listener mouse
 		panelLuces.addMouseListener(new MouseAdapter() {
-		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		    	//Jugar!
 		        int mouse_xPosition=e.getX();
@@ -76,6 +80,20 @@ public class InterfazTablero extends JFrame {
 		        
 		    }
 		    });
+		
+		//Cuando se cierre la ventana se guardara el top10
+		this.addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+			try {
+				InterfazTablero.controladorTablero.salvarTop10();
+			} catch (FileNotFoundException | UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			}
+		});
+
 		
 	}
 	
