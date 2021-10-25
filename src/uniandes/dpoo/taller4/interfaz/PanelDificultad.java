@@ -62,11 +62,42 @@ public class PanelDificultad extends JPanel {
 		//Listener ComboBox
 		desplegable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(desplegable.getSelectedItem().toString().charAt(0));
 				PanelControlador.nextFilas=Integer.parseInt(""+desplegable.getSelectedItem().toString().charAt(0));
 				PanelControlador.nextColumnas=Integer.parseInt(""+desplegable.getSelectedItem().toString().charAt(0));
 			}
 	    });  
+		
+		
+		//Listener RadioButtons
+		
+		//Facil RadioButton
+		facil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Se establece una dificultad fácil de 1
+				PanelControlador.dificultad = 1;
+			}
+	    });  
+		
+		
+		//Medio RadioButton
+		medio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Se establece una dificultad media de 3
+				PanelControlador.dificultad = 3;
+			}
+	    });  
+		
+
+		//Dificil RadioButton
+		dificil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Se establece una dificultad dificl de 5
+				PanelControlador.dificultad = 5;
+			}
+	    });  
+		
+		
+		
 	}
 	
 

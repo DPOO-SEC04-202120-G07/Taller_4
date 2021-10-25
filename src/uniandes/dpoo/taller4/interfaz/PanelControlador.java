@@ -13,6 +13,8 @@ public class PanelControlador extends JPanel{
 	
 	public static int nextFilas=5;
 	public static int nextColumnas=5;
+	
+	public static int dificultad = 1;
 
 	public PanelControlador() {
 		
@@ -56,10 +58,11 @@ public class PanelControlador extends JPanel{
 		//Listener nuevo button
 		nuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				PanelLuces.filas=PanelControlador.nextFilas;
 				PanelLuces.columnas=PanelControlador.nextColumnas;
 				InterfazTablero.controladorTablero.nuevoTablero(PanelLuces.filas);
-				PanelLuces.estadoTablero = InterfazTablero.controladorTablero.getTablero().darTablero();
+				InterfazTablero.controladorTablero.establecerDificultad(dificultad);
 			}
 		});
 		

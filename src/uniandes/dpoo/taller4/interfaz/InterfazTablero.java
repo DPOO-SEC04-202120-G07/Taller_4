@@ -3,8 +3,6 @@ package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.File;
 import javax.swing.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import uniandes.dpoo.taller4.controlador.ControladorTablero;
@@ -42,10 +40,7 @@ public class InterfazTablero extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		
-		//Se dibuja el tablero por default (5x5) de cuando se abre la aplicación
-		PanelLuces.estadoTablero = controladorTablero.getTablero().darTablero();
-		
+	
 		
 		//Listener mouse
 		panelLuces.addMouseListener(new MouseAdapter() {

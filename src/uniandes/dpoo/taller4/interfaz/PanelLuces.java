@@ -15,20 +15,19 @@ public class PanelLuces extends JComponent{
 	int columnaWidth;
 	
 	
-	
 	public static int filas=5;
 	public static int columnas=5;
 	
-	public static boolean[][] estadoTablero;
-	
-	
+
 	public PanelLuces() {
 	}
 	
 	
 	
 	public void paint( Graphics g )
-	 {
+	 {		
+		
+		boolean[][] estadoTablero = InterfazTablero.controladorTablero.getTablero().darTablero();
 		
 		this.gridWidth = getSize().width;
 		this.gridHeight = getSize().height;
@@ -48,18 +47,18 @@ public class PanelLuces extends JComponent{
 	   
 	    //Se dibujan las casillas del tablero prendidas o apagadas
 	    Point pixelInicioCasilla = new Point(0,0);
-	    g.setColor(new Color(250,211,78));
+
 	    for(int i = 0; i < filas; i++) {
 	    	for(int j = 0; j < columnas; j++) {
-	    	
-	    	//Se revisa el estado actual de la casilla para decidir de que color pintarla
-	    	if(!estadoTablero[i][j]) {
-	    	    g.setColor(Color.BLACK);
-	    	}
-	    		
-	    	g.fillRoundRect(pixelInicioCasilla.x,  pixelInicioCasilla.y, columnaWidth,filaHeight, 50, 50);
-	    	
-	    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x, pixelInicioCasilla.y + filaHeight);
+	    		g.setColor(new Color(250,211,78));
+		    	//Se revisa el estado actual de la casilla para decidir de que color pintarla
+		    	if(estadoTablero[j][i] == false) {
+		    	    g.setColor(new Color(35,35,35));
+		    	}
+		    		
+		    	g.fillRoundRect(pixelInicioCasilla.x,  pixelInicioCasilla.y, columnaWidth,filaHeight, 50, 50);
+		    	
+		    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x, pixelInicioCasilla.y + filaHeight);
 	    	}
 	    	pixelInicioCasilla.setLocation(pixelInicioCasilla.x + columnaWidth, 0);
 
