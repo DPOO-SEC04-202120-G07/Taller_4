@@ -20,9 +20,16 @@ public class InterfazTop10 extends JFrame{
 		header.setForeground(new Color(255,255,255));
 		add(header);
 		
-		int i=1;
+		RegistroTop10 actual=iteradorTop.next();
+		JLabel first =new JLabel("🏆 1"+" ..... "+actual.toString(),SwingConstants.CENTER);
+		Font font = new Font("Courier", Font.BOLD,12);
+		first.setFont(font);
+		first.setForeground(Color.GREEN);
+		add(first);
+		
+		int i=2;
 		while (iteradorTop.hasNext()) {
-			RegistroTop10 actual=iteradorTop.next();
+			actual=iteradorTop.next();
 			add(new JLabel(i+" ..... "+actual.toString(),SwingConstants.CENTER));
 			i++;
 		}
