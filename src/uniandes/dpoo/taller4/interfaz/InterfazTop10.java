@@ -10,34 +10,50 @@ import uniandes.dpoo.taller4.modelo.*;
 public class InterfazTop10 extends JFrame{
 	
 	public InterfazTop10(Top10 top) {
-		setLayout(new GridLayout(11,1));
+		setLayout(new GridLayout(1,1));
 		Collection<RegistroTop10> registros = top.darRegistros();
 		Iterator<RegistroTop10> iteradorTop=registros.iterator();
 		
-		JLabel header= new JLabel("# ---- Nombre ---- Puntos",SwingConstants.CENTER);
-		header.setOpaque(true);
-		header.setBackground(new Color(54,114,224));
-		header.setForeground(new Color(255,255,255));
-		add(header);
+
+		//Instanciamos el modelo
+		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		
+		//Añadimos el encabezaso
+		String header= "# ---- Nombre ---- Puntos";
+		modelo.addElement(header);
+		
+		//Añadimos el primer puesto
 		RegistroTop10 actual=iteradorTop.next();
-		JLabel first =new JLabel("🏆 1"+" ..... "+actual.toString(),SwingConstants.CENTER);
-		Font font = new Font("Courier", Font.BOLD,12);
-		first.setFont(font);
-		first.setForeground(Color.GREEN);
-		add(first);
+		String first = "🏆 1"+" ..... "+actual.toString();
+		modelo.addElement(first);
 		
+		//Añadimos los demás puestos
 		int i=2;
 		while (iteradorTop.hasNext()) {
 			actual=iteradorTop.next();
-			add(new JLabel(i+" ..... "+actual.toString(),SwingConstants.CENTER));
+			modelo.addElement(i+" ..... "+actual.toString());
 			i++;
 		}
 		
+	
+
+		//Instanciamos la lista
+		JList<String> top10_list = new JList<String>(modelo);
+		
+		//Modificamos el renderizado
+		DefaultListCellRenderer renderer = (DefaultListCellRenderer) top10_list.getCellRenderer();
+		renderer.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		
+		//Añadimos la lista al frame
+		add(top10_list);
+		
+		
+		//Definimos el tamañp del frame
 		setTitle("Top 10");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setSize(250,400);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 	}
