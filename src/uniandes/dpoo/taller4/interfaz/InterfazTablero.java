@@ -13,7 +13,6 @@ public class InterfazTablero extends JFrame {
 
 	//Se crea el controlador
 	public static ControladorTablero controladorTablero = new ControladorTablero();
-	
 
 	public InterfazTablero() {
 		
@@ -46,10 +45,15 @@ public class InterfazTablero extends JFrame {
 		panelLuces.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
+		    	//Jugar!
 		        int mouse_xPosition=e.getX();
 		        int mouse_yPosition=e.getY();
 		        int[] casillaClickeada  = panelLuces.convertirCoordenadasACasilla(mouse_xPosition, mouse_yPosition);
 		        controladorTablero.jugarTablero(casillaClickeada);
+		        
+		        //Aumentar jugadas
+		        int jugadas = controladorTablero.getJugadas();
+		        PanelEstado.establecerJugadas(jugadas);
 		    }
 		    });
 		

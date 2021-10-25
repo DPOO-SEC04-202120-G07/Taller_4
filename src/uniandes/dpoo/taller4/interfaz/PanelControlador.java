@@ -63,6 +63,10 @@ public class PanelControlador extends JPanel{
 				PanelLuces.columnas=PanelControlador.nextColumnas;
 				InterfazTablero.controladorTablero.nuevoTablero(PanelLuces.filas);
 				InterfazTablero.controladorTablero.establecerDificultad(dificultad);
+				
+		        //Borrar jugadas
+		        int jugadas = InterfazTablero.controladorTablero.getJugadas();
+		        PanelEstado.establecerJugadas(jugadas);
 			}
 		});
 		
@@ -78,8 +82,23 @@ public class PanelControlador extends JPanel{
 		reiniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				InterfazTablero.controladorTablero.reiniciarTablero();
+				
+		        //Reiniciar jugadas
+		        int jugadas = InterfazTablero.controladorTablero.getJugadas();
+		        PanelEstado.establecerJugadas(jugadas);
 			}
 		});
+		
+		//Listener Cambiar Jugador
+		cambiarJugador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nombreJugador = JOptionPane.showInputDialog("Ingrese el nombre del jugador actual: ");
+				PanelEstado.cambiarNombre(nombreJugador);
+				
+			}
+		});
+		
+		
 	}
 	
 }

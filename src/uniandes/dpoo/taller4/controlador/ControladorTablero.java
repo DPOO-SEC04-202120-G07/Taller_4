@@ -17,7 +17,6 @@ public class ControladorTablero {
 	
 	public void nuevoTablero(int tamanio) {
 		this.setTablero(new Tablero(tamanio));
-		System.out.println(tablero.tableroIluminado());
 	}
 
 	public Tablero getTablero() {
@@ -38,6 +37,10 @@ public class ControladorTablero {
 	
 	public void establecerDificultad(int dificultad) {
 		tablero.desordenar(dificultad);
+	}
+
+	public int getJugadas() {
+		return 	tablero.darJugadas();
 	}
 	
 

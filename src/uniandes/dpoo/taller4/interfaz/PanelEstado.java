@@ -6,6 +6,9 @@ import javax.swing.*;
 
 public class PanelEstado extends JPanel {
 
+	private static JTextField fJugador= new JTextField();
+	private static JTextField fJugadas= new JTextField();
+	
 	public PanelEstado() {
 		setLayout(new FlowLayout(FlowLayout.LEADING));
 		setBackground(new Color(228,228,228));
@@ -13,7 +16,6 @@ public class PanelEstado extends JPanel {
 		JLabel jugadas = new JLabel("Jugadas:");
 		add(jugadas);
 		
-		JTextField fJugadas= new JTextField();
 		fJugadas.setEditable(false);
 		fJugadas.setPreferredSize(new Dimension (120,fJugadas.getPreferredSize().height));
 		add(fJugadas);
@@ -23,11 +25,20 @@ public class PanelEstado extends JPanel {
 		JLabel jugador = new JLabel("Jugador:");
 		add(jugador);
 		
-		JTextField fJugador= new JTextField();
 		fJugador.setEditable(false);
 		fJugador.setPreferredSize(new Dimension (120,fJugador.getPreferredSize().height));
 		add(fJugador);
 	}
+	
+	public static void cambiarNombre(String nombreJugador) {
+		PanelEstado.fJugador.setText(nombreJugador);
+	}
+	
+	public static void establecerJugadas(int jugadas) {
+		PanelEstado.fJugadas.setText("" + jugadas);
+	}
+	
+
 	
 	
 	
