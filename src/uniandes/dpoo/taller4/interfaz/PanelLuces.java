@@ -9,10 +9,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import uniandes.dpoo.taller4.modelo.Tablero;
-
 public class PanelLuces extends JComponent{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8966071394950680365L;
 	int gridWidth; 
 	int gridHeight;
 	

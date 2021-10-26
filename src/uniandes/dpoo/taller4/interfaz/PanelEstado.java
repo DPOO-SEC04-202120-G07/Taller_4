@@ -6,6 +6,10 @@ import javax.swing.*;
 
 public class PanelEstado extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5781375367274039450L;
 	private static JTextField fJugador= new JTextField();
 	private static JTextField fJugadas= new JTextField();
 	

@@ -16,6 +16,10 @@ import uniandes.dpoo.taller4.controlador.ControladorTablero;
 
 public class InterfazTablero extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//Se crea el controlador
 	public static ControladorTablero controladorTablero = new ControladorTablero();
 

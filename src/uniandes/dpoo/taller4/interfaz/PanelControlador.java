@@ -4,13 +4,15 @@ package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import javax.swing.*;
 
-import uniandes.dpoo.taller4.modelo.Tablero;
 
 public class PanelControlador extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int nextFilas=5;
 	public static int nextColumnas=5;
 	

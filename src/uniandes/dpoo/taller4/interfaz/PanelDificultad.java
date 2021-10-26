@@ -2,13 +2,17 @@ package uniandes.dpoo.taller4.interfaz;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 
 import javax.swing.*;
 
 
 public class PanelDificultad extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -767569277953994673L;
+
 	public PanelDificultad() {
 		
 		

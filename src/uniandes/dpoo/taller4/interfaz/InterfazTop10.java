@@ -9,6 +9,11 @@ import uniandes.dpoo.taller4.modelo.*;
 
 public class InterfazTop10 extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
+
 	public InterfazTop10(Top10 top) {
 		setLayout(new GridLayout(1,1));
 		Collection<RegistroTop10> registros = top.darRegistros();
@@ -43,6 +48,12 @@ public class InterfazTop10 extends JFrame{
 		//Modificamos el renderizado
 		DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 3452847024512867294L;
+
+			@SuppressWarnings("rawtypes")
 			public Component getListCellRendererComponent( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus ) {
 			    JLabel c = (JLabel) super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus);
 			    
